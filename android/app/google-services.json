@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "620159975926",
+    "project_id": "test-social-2a9c6",
+    "storage_bucket": "test-social-2a9c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620159975926:android:26d56f1e483dd00347c7d7",
+        "android_client_info": {
+          "package_name": "vite.vue.cap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620159975926-1nbk9bgafnpeem8osnvm6jc75b751eij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4_ZeulNqurPrl3T4M2fYZPOKiI4iMjwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620159975926-1nbk9bgafnpeem8osnvm6jc75b751eij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
