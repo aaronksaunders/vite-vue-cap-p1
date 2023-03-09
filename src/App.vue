@@ -1,5 +1,26 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import { ActionSheet, ActionSheetButtonStyle } from "@capacitor/action-sheet";
+const showActionSheet = async () => {
+  const result = await ActionSheet.showActions({
+    title: "Photo Options",
+    message: "Select an option to perform",
+    options: [
+      {
+        title: "Upload",
+      },
+      {
+        title: "Share",
+      },
+      {
+        title: "Remove",
+        style: ActionSheetButtonStyle.Destructive,
+      },
+    ],
+  });
+
+  console.log("Action Sheet result:", result);
+};
 </script>
 
 <template>
@@ -12,6 +33,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue + Ionic Capacitor" />
+  <button @click="showActionSheet">SHOW ACTION SHEET</button>
 </template>
 
 <style scoped>

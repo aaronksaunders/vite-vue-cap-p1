@@ -11,6 +11,7 @@
     "ionic:serve": "vite dev --host"
   },
   "dependencies": {
+    "@capacitor/action-sheet": "4.1.0",
     "@capacitor/app": "4.1.1",
     "@capacitor/cli": "4.7.0",
     "@capacitor/core": "4.7.0",
@@ -18,6 +19,7 @@
     "@capacitor/ios": "4.7.0",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
+    "@ionic/pwa-elements": "^3.1.1",
     "vue": "^3.2.45"
   },
   "devDependencies": {
@@ -27,4 +29,3 @@
     "vue-tsc": "^1.0.24"
   }
 }
- 
