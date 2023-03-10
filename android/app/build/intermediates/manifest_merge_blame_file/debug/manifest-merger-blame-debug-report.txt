@@ -1,0 +1,249 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="vite.vue.cap"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="22"
+8-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml
+10
+11    <!-- Permissions -->
+12
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:41:5-67
+13-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:41:22-64
+14    <uses-permission android:name="android.permission.VIBRATE" />
+14-->[:capacitor-haptics] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-66
+14-->[:capacitor-haptics] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-63
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:25:5-79
+15-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:25:22-76
+16    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+16-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:26:5-68
+16-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:26:22-65
+17    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+17-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:28:5-82
+17-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:28:22-79
+18
+19    <application
+19-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:5:5-37:19
+20        android:allowBackup="true"
+20-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:6:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.8.0] /Users/aaronksaunders/.gradle/caches/transforms-3/fe0dba67bfac75aa58e7b93d33808165/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+22        android:debuggable="true"
+23        android:icon="@mipmap/ic_launcher"
+23-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:7:9-43
+24        android:label="@string/app_name"
+24-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:8:9-41
+25        android:roundIcon="@mipmap/ic_launcher_round"
+25-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:9:9-54
+26        android:supportsRtl="true"
+26-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:10:9-35
+27        android:theme="@style/AppTheme" >
+27-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:11:9-40
+28        <activity
+28-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:13:9-26:20
+29            android:name="vite.vue.cap.MainActivity"
+29-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:15:13-53
+30            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+30-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:14:13-129
+31            android:exported="true"
+31-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:19:13-36
+32            android:label="@string/title_activity_main"
+32-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:16:13-56
+33            android:launchMode="singleTask"
+33-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:18:13-44
+34            android:theme="@style/AppTheme.NoActionBarLaunch" >
+34-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:17:13-62
+35            <intent-filter>
+35-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:21:13-24:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:22:17-69
+36-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:22:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:23:17-77
+38-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:23:27-74
+39            </intent-filter>
+40        </activity>
+41
+42        <provider
+43            android:name="androidx.core.content.FileProvider"
+43-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:29:13-62
+44            android:authorities="vite.vue.cap.fileprovider"
+44-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:30:13-64
+45            android:exported="false"
+45-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:31:13-37
+46            android:grantUriPermissions="true" >
+46-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:32:13-47
+47            <meta-data
+47-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:33:13-35:64
+48                android:name="android.support.FILE_PROVIDER_PATHS"
+48-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:34:17-67
+49                android:resource="@xml/file_paths" />
+49-->/Users/aaronksaunders/develop/projects/vite-vue-cap/android/app/src/main/AndroidManifest.xml:35:17-51
+50        </provider>
+51
+52        <service
+52-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-16:19
+53            android:name="com.capacitorjs.plugins.pushnotifications.MessagingService"
+53-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-86
+54            android:exported="false" >
+54-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+55            <intent-filter>
+55-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-15:29
+56                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+56-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:17-78
+56-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:25-75
+57            </intent-filter>
+58        </service>
+59
+60        <receiver
+60-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:31:9-38:20
+61            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+61-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:32:13-78
+62            android:exported="true"
+62-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:33:13-36
+63            android:permission="com.google.android.c2dm.permission.SEND" >
+63-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:34:13-73
+64            <intent-filter>
+64-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:35:13-37:29
+65                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+65-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:36:17-81
+65-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:36:25-78
+66            </intent-filter>
+67        </receiver>
+68        <!--
+69             FirebaseMessagingService performs security checks at runtime,
+70             but set to not exported to explicitly avoid allowing another app to call it.
+71        -->
+72        <service
+72-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:44:9-51:19
+73            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+73-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:45:13-82
+74            android:directBootAware="true"
+74-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:46:13-43
+75            android:exported="false" >
+75-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:47:13-37
+76            <intent-filter android:priority="-500" >
+76-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-15:29
+77                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+77-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:17-78
+77-->[:capacitor-push-notifications] /Users/aaronksaunders/develop/projects/vite-vue-cap/node_modules/@capacitor/push-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:25-75
+78            </intent-filter>
+79        </service>
+80        <service
+80-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:52:9-58:19
+81            android:name="com.google.firebase.components.ComponentDiscoveryService"
+81-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:53:13-84
+82            android:directBootAware="true"
+82-->[com.google.firebase:firebase-common:20.1.1] /Users/aaronksaunders/.gradle/caches/transforms-3/7c277c21e3425d7da700f38bc0945473/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
+83            android:exported="false" >
+83-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:54:13-37
+84            <meta-data
+84-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:55:13-57:85
+85                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+85-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:56:17-119
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[com.google.firebase:firebase-messaging:23.0.5] /Users/aaronksaunders/.gradle/caches/transforms-3/71fd8bfa4f00009464628c02658ee415/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:57:17-82
+87            <meta-data
+87-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/aaronksaunders/.gradle/caches/transforms-3/8e5fbcaeabc8a8329fa9033227fb26ff/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:28:13-30:85
+88                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+88-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/aaronksaunders/.gradle/caches/transforms-3/8e5fbcaeabc8a8329fa9033227fb26ff/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:29:17-115
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/aaronksaunders/.gradle/caches/transforms-3/8e5fbcaeabc8a8329fa9033227fb26ff/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:30:17-82
+90            <meta-data
+90-->[com.google.firebase:firebase-installations:17.0.1] /Users/aaronksaunders/.gradle/caches/transforms-3/8ed32f9624df4af3f0e91fe17bf0603d/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:18:13-20:85
+91                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+91-->[com.google.firebase:firebase-installations:17.0.1] /Users/aaronksaunders/.gradle/caches/transforms-3/8ed32f9624df4af3f0e91fe17bf0603d/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:19:17-127
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.firebase:firebase-installations:17.0.1] /Users/aaronksaunders/.gradle/caches/transforms-3/8ed32f9624df4af3f0e91fe17bf0603d/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:20:17-82
+93        </service>
+94
+95        <activity
+95-->[com.google.android.gms:play-services-base:18.0.1] /Users/aaronksaunders/.gradle/caches/transforms-3/8ff1e9f283fdec7034b38b65639640bb/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+96            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+96-->[com.google.android.gms:play-services-base:18.0.1] /Users/aaronksaunders/.gradle/caches/transforms-3/8ff1e9f283fdec7034b38b65639640bb/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+97            android:exported="false"
+97-->[com.google.android.gms:play-services-base:18.0.1] /Users/aaronksaunders/.gradle/caches/transforms-3/8ff1e9f283fdec7034b38b65639640bb/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+98            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+98-->[com.google.android.gms:play-services-base:18.0.1] /Users/aaronksaunders/.gradle/caches/transforms-3/8ff1e9f283fdec7034b38b65639640bb/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+99
+100        <provider
+100-->[com.google.firebase:firebase-common:20.1.1] /Users/aaronksaunders/.gradle/caches/transforms-3/7c277c21e3425d7da700f38bc0945473/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:26:9-31:39
+101            android:name="com.google.firebase.provider.FirebaseInitProvider"
+101-->[com.google.firebase:firebase-common:20.1.1] /Users/aaronksaunders/.gradle/caches/transforms-3/7c277c21e3425d7da700f38bc0945473/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:27:13-77
+102            android:authorities="vite.vue.cap.firebaseinitprovider"
+102-->[com.google.firebase:firebase-common:20.1.1] /Users/aaronksaunders/.gradle/caches/transforms-3/7c277c21e3425d7da700f38bc0945473/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:28:13-72
+103            android:directBootAware="true"
+103-->[com.google.firebase:firebase-common:20.1.1] /Users/aaronksaunders/.gradle/caches/transforms-3/7c277c21e3425d7da700f38bc0945473/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:29:13-43
+104            android:exported="false"
+104-->[com.google.firebase:firebase-common:20.1.1] /Users/aaronksaunders/.gradle/caches/transforms-3/7c277c21e3425d7da700f38bc0945473/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:30:13-37
+105            android:initOrder="100" />
+105-->[com.google.firebase:firebase-common:20.1.1] /Users/aaronksaunders/.gradle/caches/transforms-3/7c277c21e3425d7da700f38bc0945473/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:31:13-36
+106
+107        <meta-data
+107-->[com.google.android.gms:play-services-basement:18.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/b514778927d5d649e023cffd6d8fd05c/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+108            android:name="com.google.android.gms.version"
+108-->[com.google.android.gms:play-services-basement:18.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/b514778927d5d649e023cffd6d8fd05c/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+109            android:value="@integer/google_play_services_version" />
+109-->[com.google.android.gms:play-services-basement:18.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/b514778927d5d649e023cffd6d8fd05c/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+110
+111        <provider
+111-->[androidx.emoji2:emoji2:1.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/8876b0ef355d9d3e8b47dae2b38cca4c/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+112            android:name="androidx.startup.InitializationProvider"
+112-->[androidx.emoji2:emoji2:1.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/8876b0ef355d9d3e8b47dae2b38cca4c/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+113            android:authorities="vite.vue.cap.androidx-startup"
+113-->[androidx.emoji2:emoji2:1.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/8876b0ef355d9d3e8b47dae2b38cca4c/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+114            android:exported="false" >
+114-->[androidx.emoji2:emoji2:1.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/8876b0ef355d9d3e8b47dae2b38cca4c/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+115            <meta-data
+115-->[androidx.emoji2:emoji2:1.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/8876b0ef355d9d3e8b47dae2b38cca4c/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+116                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+116-->[androidx.emoji2:emoji2:1.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/8876b0ef355d9d3e8b47dae2b38cca4c/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+117                android:value="androidx.startup" />
+117-->[androidx.emoji2:emoji2:1.0.0] /Users/aaronksaunders/.gradle/caches/transforms-3/8876b0ef355d9d3e8b47dae2b38cca4c/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+118            <meta-data
+118-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/aaronksaunders/.gradle/caches/transforms-3/31fc96d9881c54f9b47ddec530ec8052/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+119                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+119-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/aaronksaunders/.gradle/caches/transforms-3/31fc96d9881c54f9b47ddec530ec8052/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+120                android:value="androidx.startup" />
+120-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/aaronksaunders/.gradle/caches/transforms-3/31fc96d9881c54f9b47ddec530ec8052/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+121        </provider>
+122
+123        <service
+123-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c1aef2822e8b2b6f74f8e460a047d660/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:29:9-35:19
+124            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+124-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c1aef2822e8b2b6f74f8e460a047d660/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:30:13-103
+125            android:exported="false" >
+125-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c1aef2822e8b2b6f74f8e460a047d660/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:31:13-37
+126            <meta-data
+126-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c1aef2822e8b2b6f74f8e460a047d660/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:32:13-34:39
+127                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+127-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c1aef2822e8b2b6f74f8e460a047d660/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:33:17-94
+128                android:value="cct" />
+128-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c1aef2822e8b2b6f74f8e460a047d660/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:34:17-36
+129        </service>
+130        <service
+130-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c87e34716cc67cc67f3eb88cab4a1683/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:26:9-30:19
+131            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+131-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c87e34716cc67cc67f3eb88cab4a1683/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:27:13-117
+132            android:exported="false"
+132-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c87e34716cc67cc67f3eb88cab4a1683/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:28:13-37
+133            android:permission="android.permission.BIND_JOB_SERVICE" >
+133-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c87e34716cc67cc67f3eb88cab4a1683/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:29:13-69
+134        </service>
+135
+136        <receiver
+136-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c87e34716cc67cc67f3eb88cab4a1683/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:32:9-34:40
+137            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+137-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c87e34716cc67cc67f3eb88cab4a1683/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:33:13-132
+138            android:exported="false" />
+138-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/aaronksaunders/.gradle/caches/transforms-3/c87e34716cc67cc67f3eb88cab4a1683/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:34:13-37
+139    </application>
+140
+141</manifest>

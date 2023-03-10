@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3em;
   line-height: 1.1;
 }
 
@@ -47,6 +47,14 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+.action-button {
+  background-color: #545353;
+  margin :5px;
+  color : #ffffff;
+  width : 280px;
+  height: 42px;
+}
 button:hover {
   border-color: #646cff;
 }
@@ -56,7 +64,7 @@ button:focus-visible {
 }
 
 .card {
-  padding: 2em;
+  padding: 1em;
 }
 
 #app {
