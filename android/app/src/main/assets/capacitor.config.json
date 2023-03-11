@@ -1,0 +1,6 @@
+{
+	"appId": "vite.vue.cap",
+	"appName": "vite-vue-cap",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

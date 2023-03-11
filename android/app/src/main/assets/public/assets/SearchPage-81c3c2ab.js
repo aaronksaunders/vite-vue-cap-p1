@@ -1,0 +1,1 @@
+import{d as n,f as o,w as a,u as e,o as l,g as t,I as s,h as r,e as u,i as c,j as _,k as d}from"./index-bb55b394.js";const h=n({__name:"SearchPage",setup(f){return(p,i)=>(l(),o(e(d),null,{default:a(()=>[t(e(c),null,{default:a(()=>[t(e(s),null,{default:a(()=>[t(e(r),null,{default:a(()=>[u("Search Page")]),_:1})]),_:1})]),_:1}),t(e(_))]),_:1}))}});export{h as default};
