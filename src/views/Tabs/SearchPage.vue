@@ -9,6 +9,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+    <h2>Search Page Content</h2>
     </ion-content>
   </ion-page>
 </template>
