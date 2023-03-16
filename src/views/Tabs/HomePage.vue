@@ -24,6 +24,7 @@ import {
   IonContent,
   IonPage,
   actionSheetController,
+  IonButton
 } from "@ionic/vue";
 import HelloWorld from "../../components/HelloWorld.vue";
 import { ref } from 'vue';
