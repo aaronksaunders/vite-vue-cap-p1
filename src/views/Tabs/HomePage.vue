@@ -5,13 +5,13 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>Home Page</ion-title>
+        <ion-buttons slot="end">
+          <ion-button @click="onSignout"> LOGOUT </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <hello-world msg="Vite + Vue + Ionic Capacitor" />
-
-      <ion-button @click="presentActionSheet">Open</ion-button>
-      <code>{{ result }}</code>
+      <pre>{{ JSON.stringify(someDocsData, null, 2) }}</pre>
     </ion-content>
   </ion-page>
 </template>
@@ -23,44 +23,32 @@ import {
   IonTitle,
   IonContent,
   IonPage,
-  actionSheetController,
+  IonButtons,
+  IonButton,
+  onIonViewDidEnter,
+  useIonRouter
 } from "@ionic/vue";
-import HelloWorld from "../../components/HelloWorld.vue";
-import { ref } from 'vue';
+import { ref } from "vue";
+import { getAllSomeDocs, firebaseSignOut } from "../../services/firebase-service";
 
-const result = ref();
 
-const presentActionSheet = async () => {
-  const actionSheet = await actionSheetController.create({
-    header: "Example header",
-    subHeader: "Example subheader",
-    buttons: [
-      {
-        text: "Delete",
-        role: "destructive",
-        data: {
-          action: "delete",
-        },
-      },
-      {
-        text: "Share",
-        data: {
-          action: "share",
-        },
-      },
-      {
-        text: "Cancel",
-        role: "cancel",
-        data: {
-          action: "cancel",
-        },
-      },
-    ],
-  });
+const router = useIonRouter();
 
-  await actionSheet.present();
+const someDocsData = ref();
 
-  const res = await actionSheet.onDidDismiss();
-  result.value = JSON.stringify(res, null, 2);
-};
+onIonViewDidEnter(async () => {
+  const { data, error } = await getAllSomeDocs();
+  if (error) {
+    console.error("getAllSomeDocs", error);
+  }
+  someDocsData.value = data;
+});
+
+/**
+ * 
+ */
+const onSignout = async () =>{
+  await firebaseSignOut();
+  router.replace("/signin")
+}
 </script>

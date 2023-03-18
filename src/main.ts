@@ -22,10 +22,12 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 // import './theme/variables.css';
 
-import router from './router';
+import router from "./router";
+import { initializeFirebase } from "./services/firebase-service";
 
-const app = createApp(App).use(IonicVue).use(router);
-
-router.isReady().then(() => {
-  app.mount('#app');
+initializeFirebase().then((user) => {
+  const app = createApp(App).use(IonicVue).use(router);
+  router.isReady().then(() => {
+    app.mount("#app");
+  });
 });
