@@ -11,7 +11,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <pre>{{ JSON.stringify(someDocsData, null, 2) }}</pre>
+      <ion-button router-link="/home/product-list">PRODUCTS</ion-button>
     </ion-content>
   </ion-page>
 </template>
@@ -26,7 +26,8 @@ import {
   IonButtons,
   IonButton,
   onIonViewDidEnter,
-  useIonRouter
+  useIonRouter,
+  
 } from "@ionic/vue";
 import { ref } from "vue";
 import { getAllSomeDocs, firebaseSignOut } from "../../services/firebase-service";
@@ -36,13 +37,7 @@ const router = useIonRouter();
 
 const someDocsData = ref();
 
-onIonViewDidEnter(async () => {
-  const { data, error } = await getAllSomeDocs();
-  if (error) {
-    console.error("getAllSomeDocs", error);
-  }
-  someDocsData.value = data;
-});
+
 
 /**
  * 

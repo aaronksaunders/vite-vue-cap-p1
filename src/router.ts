@@ -29,8 +29,28 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('./views/Tabs/HomePage.vue'),
       },
       {
-        path: 'search',
-        component: () => import('./views/Tabs/SearchPage.vue'),
+        path: 'home/product-list',
+        component: () => import('./views/Products/ProductListPage.vue'),
+      },
+      {
+        path: 'home/add-product',
+        component: () => import('./views/Products/AddProductPage.vue'),
+      },
+      {
+        path: 'home/product-detail/:productId',
+        component: () => import('./views/Products/ProductDetailPage.vue'),
+      },
+      {
+        path: 'home/product-images/:productId',
+        component: () => import('./views/Products/ProductImagesPage.vue'),
+      },
+      {
+        path: 'account',
+        component: () => import('./views/Tabs/AccountPage.vue'),
+      },
+      {
+        path: 'account/product-list/:ownerId',
+        component: () => import('./views/Products/ProductListPage.vue'),
       },
     ],
     meta : {

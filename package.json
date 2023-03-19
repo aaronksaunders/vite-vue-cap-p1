@@ -8,7 +8,9 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "ionic:build": "npm run build",
-    "ionic:serve": "vite dev --host"
+    "ionic:serve": "vite dev --host",
+    "export:emulators": "firebase emulators:export ./emulators",
+    "start:emulators": "firebase emulators:start --export-on-exit --import ./emulators"
   },
   "dependencies": {
     "@capacitor/app": "4.1.1",
@@ -20,6 +22,8 @@
     "@capacitor/status-bar": "4.1.1",
     "@ionic/vue": "^6.6.1",
     "@ionic/vue-router": "^6.6.1",
+    "firebase": "^9.18.0",
+    "ionicons": "^7.0.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },

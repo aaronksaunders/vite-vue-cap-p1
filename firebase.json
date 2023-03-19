@@ -11,7 +11,10 @@
     },
     "singleProjectMode": true
   },
-  "firestore" : {
-    "rules" : "firestore.rules"
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "firestore.rules"
   }
 }
