@@ -52,6 +52,10 @@ const routes: Array<RouteRecordRaw> = [
         path: 'account/product-list/:ownerId',
         component: () => import('./views/Products/ProductListPage.vue'),
       },
+      {
+        path: 'account/messages',
+        component: () => import('./views/Messages/ConversationListPage.vue'),
+      },
     ],
     meta : {
       requiresAuth : true

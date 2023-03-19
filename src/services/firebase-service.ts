@@ -12,6 +12,10 @@ import {
   orderBy,
   doc,
   where,
+  QueryConstraint,
+  QuerySnapshot,
+  DocumentData,
+  QueryDocumentSnapshot,
 } from "firebase/firestore";
 import {
   connectAuthEmulator,
@@ -46,7 +50,6 @@ const storage = getStorage(firebaseApp);
 
 // connect the application to the emulator
 if (location.hostname === "localhost" || location.hostname === "192.168.1.56") {
-
   // Point to the Storage emulator running on localhost.
   connectFirestoreEmulator(db, "localhost", 8080);
 
@@ -252,5 +255,191 @@ export const uploadImageAndSaveDocument = async (file: File) => {
   } catch (error) {
     console.error(error);
     return { error };
+  }
+};
+
+//
+// MESSAGES
+interface ConversationInput {
+  createdAt: any; //firebase.firestore.Timestamp;
+  productId: string;
+  sellerId: string;
+  buyerId: string;
+}
+
+interface Message {
+  id?: string;
+  text: string;
+  createdAt: any; //firebase.firestore.Timestamp;
+  senderId: string;
+}
+
+interface NewMessage {
+  text: string;
+  senderId: string;
+  createdAt: any; //firebase.firestore.Timestamp;
+}
+
+interface Conversation {
+  createdAt: any;
+  productId: string;
+  sellerId: string;
+  buyerId: string;
+  messages: Message[];
+  sellerMeta?: any;
+  buyerMeta?: any;
+  productMeta?: any;
+}
+
+/**
+ *
+ * @param productId
+ * @param sellerId
+ * @param messageText
+ * @returns
+ */
+export const initiateConversation = async (
+  productId: string,
+  sellerId: string,
+  //buyerId: string,
+  messageText: string
+) => {
+  try {
+    const buyerId = currentUser.value?.uid as string;
+
+    // create conversation
+    const conversation: ConversationInput = {
+      createdAt: serverTimestamp(),
+      productId,
+      sellerId,
+      buyerId,
+    };
+
+    
+    let conversationDocSnap = (await getDocs(query(collection(db, "conversations"), where('productId','==', productId))))?.docs[0];
+    let conversationRef = conversationDocSnap?.ref;
+
+    debugger;
+
+    // if the conversation hasn't been started, then start it
+    if (!conversationDocSnap.exists()) {
+      conversationRef = await addDoc(
+        collection(db, "conversations"),
+        conversation
+      );
+    }
+
+    const message: NewMessage = {
+      text: "Hi, I am interested in your product. " + messageText,
+      senderId: buyerId as string,
+      createdAt: serverTimestamp(),
+    };
+
+    const messageRef = await addDoc(
+      collection(conversationRef, "messages"),
+      message
+    );
+
+    const updatedConversation = await getDoc(conversationRef);
+
+    return {
+      data: { id: conversationRef, data: updatedConversation.data() },
+    };
+  } catch (error) {
+    return { error };
+  }
+};
+// HELPER
+
+// function to get conversations for a user
+export const getUserConversations = async (): Promise<Conversation[]> => {
+  const userId = currentUser.value?.uid as string;
+
+  // const q = query(
+  //   collection(db, "conversations"),
+  //   (where("buyerId", "==", userId) as any).orWhere("sellerId", "==", userId)
+  // ) as any;
+
+  debugger;
+  const buyerQuery: QueryConstraint = where(
+    "buyerId",
+    "==",
+    currentUser.value?.uid as string
+  );
+  const sellerQuery: QueryConstraint = where(
+    "sellerId",
+    "==",
+    currentUser.value?.uid as string
+  );
+
+  // const q = compoundQuery(collection(db, 'messages'), [buyerQuery, sellerQuery], 'or');
+
+  const querySnapshotBuyers = await getDocs(
+    query(collection(db, "conversations"), buyerQuery)
+  );
+  const querySnapshotSellers = await getDocs(
+    query(collection(db, "conversations"), sellerQuery)
+  );
+
+  const a1 = await processConversationSnapshot(querySnapshotBuyers);
+
+  const a2 = await processConversationSnapshot(querySnapshotSellers);
+
+  console.log(a1,a2)
+  debugger;
+  return (a1 || []).concat(a2 || []);
+};
+
+const processConversationSnapshot = async (
+  querySnapshot: QuerySnapshot<DocumentData>
+) => {
+  const conversations: Conversation[] = [];
+
+  if (!querySnapshot.empty) {
+    return new Promise((resolve) => {
+      querySnapshot.forEach(
+        async (conv_doc: QueryDocumentSnapshot<DocumentData>) => {
+          // get conversation information
+          const conversationData = conv_doc.data() as Conversation;
+
+          // get conversation data, expanded
+          const [sellerDoc, buyerDoc, productDoc] = await Promise.all([
+            getDoc(doc(db, "users", conversationData.sellerId)),
+            getDoc(doc(db, "users", conversationData.buyerId)),
+            getDoc(doc(db, "someDocs", conversationData.productId)),
+          ]);
+
+          // get messages from the collection
+          const querySnapshot = await getDocs(
+            query(collection(conv_doc.ref, "messages"), orderBy('createdAt', 'desc'))
+          );
+
+          const messages: { createdAt: any; id: string }[] = [];
+          querySnapshot.forEach((doc) => {
+            messages.push({
+              id: doc.id,
+              ...doc.data(),
+              createdAt: doc.data().createdAt.toDate(),
+            });
+          });
+
+          conversations.push({
+            ...conversationData,
+            sellerMeta: sellerDoc.data(),
+            buyerMeta: buyerDoc.data(),
+            productMeta: productDoc.data(),
+            createdAt: conversationData.createdAt.toDate(),
+            productId: conversationData.productId,
+            sellerId: conversationData.sellerId,
+            buyerId: conversationData.buyerId,
+            messages: messages as any,
+          });
+
+          resolve(conversations);
+        }
+      );
+    });
+  } else {
+    Promise.resolve(conversations);
   }
 };

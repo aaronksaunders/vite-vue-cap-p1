@@ -8,6 +8,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      <h3>{{ user?.displayName || user?.email }}</h3>
       <ion-item detail :router-link="`/account/product-list/${user?.uid}`">
         <ion-icon slot="start" :icon="personOutline"></ion-icon> Your Settings
       </ion-item>
@@ -17,7 +18,7 @@
       <ion-item detail :router-link="`/account/product-list/${user?.uid}`">
         <ion-icon slot="start" :icon="bagOutline"></ion-icon> Your Products
       </ion-item>
-      <ion-item detail :router-link="`/account/product-list/${user?.uid}`">
+      <ion-item detail :router-link="`/account/messages`">
         <ion-icon slot="start" :icon="mailUnreadOutline"></ion-icon> Your Messages
       </ion-item>
       <ion-item detail :router-link="`/account/product-list/${user?.uid}`">
@@ -43,7 +44,7 @@ import {
   mailUnreadOutline,
   bagOutline,
   personOutline,
-  heartOutline
+  heartOutline,
 } from "ionicons/icons";
 
 const user = computed(() => {
