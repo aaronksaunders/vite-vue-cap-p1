@@ -259,7 +259,7 @@ export const uploadImageAndSaveDocument = async (file: File) => {
 };
 
 //
-// MESSAGES
+// MESSAGES & CONVERSATIONS
 interface ConversationInput {
   createdAt: any; //firebase.firestore.Timestamp;
   productId: string;
@@ -281,6 +281,7 @@ interface NewMessage {
 }
 
 interface Conversation {
+  id?: string;
   createdAt: any;
   productId: string;
   sellerId: string;
@@ -290,7 +291,8 @@ interface Conversation {
   buyerMeta?: any;
   productMeta?: any;
 }
-
+//
+export const currentConversations = ref<Conversation[] | null>(null);
 /**
  *
  * @param productId
@@ -315,11 +317,15 @@ export const initiateConversation = async (
       buyerId,
     };
 
-    
-    let conversationDocSnap = (await getDocs(query(collection(db, "conversations"), where('productId','==', productId))))?.docs[0];
+    let conversationDocSnap = (
+      await getDocs(
+        query(
+          collection(db, "conversations"),
+          where("productId", "==", productId)
+        )
+      )
+    )?.docs[0];
     let conversationRef = conversationDocSnap?.ref;
-
-    debugger;
 
     // if the conversation hasn't been started, then start it
     if (!conversationDocSnap.exists()) {
@@ -360,7 +366,6 @@ export const getUserConversations = async (): Promise<Conversation[]> => {
   //   (where("buyerId", "==", userId) as any).orWhere("sellerId", "==", userId)
   // ) as any;
 
-  debugger;
   const buyerQuery: QueryConstraint = where(
     "buyerId",
     "==",
@@ -381,13 +386,16 @@ export const getUserConversations = async (): Promise<Conversation[]> => {
     query(collection(db, "conversations"), sellerQuery)
   );
 
-  const a1 = await processConversationSnapshot(querySnapshotBuyers);
+  const a1 = await processConversationSnapshot(querySnapshotBuyers) || [];
 
-  const a2 = await processConversationSnapshot(querySnapshotSellers);
+  const a2 = await processConversationSnapshot(querySnapshotSellers) || [];
 
-  console.log(a1,a2)
-  debugger;
-  return (a1 || []).concat(a2 || []);
+  currentConversations.value = (a1 as []).concat(a2 as []);
+  return currentConversations.value as Conversation[];
+};
+
+export const getConversationById = (conversationId: string) => {
+  return currentConversations.value?.find((c) => c.id === conversationId);
 };
 
 const processConversationSnapshot = async (
@@ -400,7 +408,10 @@ const processConversationSnapshot = async (
       querySnapshot.forEach(
         async (conv_doc: QueryDocumentSnapshot<DocumentData>) => {
           // get conversation information
-          const conversationData = conv_doc.data() as Conversation;
+          const conversationData = {
+            ...conv_doc.data(),
+            id: conv_doc.id,
+          } as Conversation;
 
           // get conversation data, expanded
           const [sellerDoc, buyerDoc, productDoc] = await Promise.all([
@@ -411,7 +422,10 @@ const processConversationSnapshot = async (
 
           // get messages from the collection
           const querySnapshot = await getDocs(
-            query(collection(conv_doc.ref, "messages"), orderBy('createdAt', 'desc'))
+            query(
+              collection(conv_doc.ref, "messages"),
+              orderBy("createdAt", "desc")
+            )
           );
 
           const messages: { createdAt: any; id: string }[] = [];

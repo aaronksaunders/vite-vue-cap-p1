@@ -5,34 +5,32 @@
         <ion-buttons slot="start">
           <ion-back-button></ion-back-button>
         </ion-buttons>
-        <ion-title>Product Images</ion-title>
+        <ion-title>Conversations</ion-title>
         <ion-buttons slot="end"> </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
-      <!-- Conversation Data -->
-      <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>{{ response?.productMeta?.name }}</ion-card-subtitle>
-          <ion-card-title>{{ response?.sellerName }}</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-          <p>Buyer: {{ response?.buyerName }}</p>
-          <p>Product ID: {{ response?.productId }}</p>
-          <p>Created At: {{ response?.createdAt }}</p>
-        </ion-card-content>
-      </ion-card>
+    <ion-content>
       <!-- Messages List -->
       <ion-list>
-        <ion-item v-for="message in response?.messages" :key="message.id">
-          <ion-label>
-            <h2 class="ion-text-wrap">{{ message.text }}</h2>
-            <p>{{ message.createdAt }}</p>
-          </ion-label>
-        </ion-item>
+        <!-- Conversation Data -->
+        <ion-card
+          v-for="response in conversations"
+          :key="response.id"
+          lines="none"
+          :router-link="`/account/conversations/${response.id}`"
+        >
+          <ion-card-header>
+            <ion-card-subtitle>{{ response?.productMeta?.name }}</ion-card-subtitle>
+            <ion-card-title>{{ response?.sellerName }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Buyer: {{ response?.buyerName }}</p>
+            <!-- <p>Product ID: {{ response?.productId }}</p> -->
+            <p>Conversation Started: {{ convertDate(response?.createdAt) }}</p>
+            <p>Message(s): {{ response?.messages.length }}</p>
+          </ion-card-content>
+        </ion-card>
       </ion-list>
-      <pre>{{ JSON.stringify(response, null, 2) }}</pre>
     </ion-content>
   </ion-page>
 </template>
@@ -48,14 +46,28 @@ import {
   IonButtons,
   IonButton,
   IonBackButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonCardSubtitle,
+  IonCardTitle,
+  onIonViewWillEnter,
 } from "@ionic/vue";
 import { ref, watch } from "vue";
 import { getUserConversations } from "../../services/firebase-service";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
+const conversations = ref<any>();
 
-const response = ref<any>();
+const convertDate = (date: Date) => {
+  return dayjs().to(date);
+};
 
-onIonViewDidEnter(async () => {
-  response.value = (await getUserConversations())[0];
-  debugger;
+onIonViewWillEnter(() => {
+  getUserConversations().then((resp) => (conversations.value = resp));
 });
 </script>

@@ -18,7 +18,7 @@
       <ion-item detail :router-link="`/account/product-list/${user?.uid}`">
         <ion-icon slot="start" :icon="bagOutline"></ion-icon> Your Products
       </ion-item>
-      <ion-item detail :router-link="`/account/messages`">
+      <ion-item detail :router-link="`/account/conversations`">
         <ion-icon slot="start" :icon="mailUnreadOutline"></ion-icon> Your Messages
       </ion-item>
       <ion-item detail :router-link="`/account/product-list/${user?.uid}`">
@@ -36,6 +36,7 @@ import {
   IonContent,
   IonPage,
   IonItem,
+  IonIcon
 } from "@ionic/vue";
 import { currentUser } from "../../services/firebase-service";
 import { computed } from "vue";

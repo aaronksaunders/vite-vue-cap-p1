@@ -36,6 +36,7 @@ import {
   IonButtons,
   IonButton,
   IonBackButton,
+onIonViewWillEnter,
 } from "@ionic/vue";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
@@ -56,7 +57,7 @@ const user = computed(() => {
   return currentUser.value;
 });
 
-onIonViewDidEnter(async () => {
+onIonViewWillEnter(async () => {
   if (route.params?.ownerId) {
     // check the user is really current user..
     if ((route.params?.ownerId as string) !== currentUser.value?.uid) {

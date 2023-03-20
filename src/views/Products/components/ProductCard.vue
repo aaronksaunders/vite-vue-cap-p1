@@ -38,6 +38,7 @@ import {
   IonCardContent,
   IonItem,
   IonIcon,
+  IonButton
 } from "@ionic/vue";
 import { pencilOutline, eyeOutline, eyeOffOutline, mailOutline } from "ionicons/icons";
 const props = defineProps<{

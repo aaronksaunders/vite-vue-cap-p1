@@ -53,8 +53,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('./views/Products/ProductListPage.vue'),
       },
       {
-        path: 'account/messages',
+        path: 'account/conversations',
         component: () => import('./views/Messages/ConversationListPage.vue'),
+      },
+      {
+        path: 'account/conversations/:conversationId',
+        component: () => import('./views/Messages/ConversationDetailPage.vue'),
       },
     ],
     meta : {
